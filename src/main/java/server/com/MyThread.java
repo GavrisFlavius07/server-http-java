@@ -18,9 +18,7 @@ public class MyThread extends Thread {
             BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             PrintWriter out = new PrintWriter(s.getOutputStream(), true);
 
-            String request = in.readLine();
-
-            System.out.println("RICHIESTA: "+request);
+            String request = in.readLine(); //PRIMA RIGA DI UNA RICHIESA HTTP
             String header="";
 
             do {
