@@ -1,44 +1,66 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Benvenuto nel Webserver</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            font-size: 1.2em;
-            color: #666;
-        }
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/stylesheet.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<body>
-    <h1>Benvenuto nel Webserver!</h1>
-    <p>Questo è il file <strong>index.html</strong> che viene servito dal server. Puoi navigare nel server per vedere altri contenuti.</p>
-    <p>Per esempio, puoi provare a visitare:</p>
-    <ul>
-        <li><a href="/about.html">Pagina About</a></li>
-        <li><a href="/contact.html">Pagina Contatti</a></li>
-        <li><a href="/images/">Immagini</a></li>
-    </ul>
-    <footer>
-        <p>&copy; 2025 Il tuo Webserver</p>
-    </footer>
+
+<body class="">
+  <nav class="navbar navbar-expand-lg bg-secondary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html"><i class="bi bi-cart"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" id="magliette" onclick="carica('Shirts')">Shirts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="jeans" onclick="carica('Jeans')">Jeans</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="scarpe" onclick="carica('Shoes')">Shoes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="giacche" onclick="carica('Jackets')">Jackets</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Accessories
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="occhiali" onclick="carica('Sunglasses')">Sunglasses</a></li>
+              <li><a class="dropdown-item" id="orologi" onclick="carica('Watches')">Watches</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" id="ricercaForm" role="search">
+          <input class="form-control me-2" type="search" id="ricerca" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid text-center">
+    <div id="product-content" class="row mb-4">
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

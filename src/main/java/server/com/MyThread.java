@@ -65,10 +65,11 @@ public class MyThread extends Thread {
 
     private void handleGet(String path, PrintWriter out, DataOutputStream outBinary) throws IOException {
         if (path.endsWith("/")) {
-            path += "index.html";  // Aggiungi index.html se il path è una directory
+            path += "index.html"; 
         }
 
         File file = new File("htdocs" + path);
+        System.out.println(path);
         if (file.exists()) {
             out.println("HTTP/1.1 200 OK");
             out.println("Content-Type: " + getContentType(file));
@@ -124,7 +125,9 @@ public class MyThread extends Thread {
             return "image/jpeg";
         } else if (file.getName().endsWith(".png")) {
             return "image/png";
-        } else {
+        }else if((file.getName().endsWith(".webp"))){
+            return "image/webp";
+        }else {
             return "application/octet-stream";
         }
     }
@@ -160,11 +163,9 @@ public class MyThread extends Thread {
     }
 
     private void logRequest(String clientIP, String method, String path, int status, String userAgent) {
-        try (FileWriter logFile = new FileWriter("access.log", true)) {
-            String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-            logFile.write(String.format("%s - %s %s %s %d %s\n", timestamp, clientIP, method, path, status, userAgent));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+        String logMessage = String.format("%s - %s %s %s %d %s", timestamp, clientIP, method, path, status, userAgent);
+        System.out.println(logMessage);
     }
+    
 }
